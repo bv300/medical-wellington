@@ -22,7 +22,7 @@ function ContactForm() {
   }
 
   return (
-    <section className="contact-section">
+    <section id="contact" className="contact-section">
       <div className="contact-card">
         <div className="contact-header">
           <h2 className="contact-title">Quick Contact</h2>

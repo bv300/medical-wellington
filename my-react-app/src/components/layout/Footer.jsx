@@ -1,3 +1,4 @@
+import logo from '../../assets/logo.svg'
 import './Footer.css'
 
 const exploreLinks = [
@@ -20,9 +21,8 @@ function Footer() {
         <div className="footer-brand-col">
           <div className="footer-brand">
             <div className="footer-brand-icon">
-              <span className="material-symbols-outlined text-[24px]">medical_services</span>
+              <img src={logo} alt="Medicare Wellington Logo" className="footer-logo" />
             </div>
-            Medicare Wellington
           </div>
           <p className="footer-desc">
             Stewardship through Connection. Supporting healthcare professionals and their families in New Zealand.

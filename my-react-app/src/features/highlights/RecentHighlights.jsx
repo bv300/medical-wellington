@@ -42,7 +42,7 @@ function RecentHighlights({ onNavigateToEvents }) {
   const activeEvent = homeEvents[displayIndex]
 
   return (
-    <section className="highlights-section">
+    <section id="highlights" className="highlights-section">
       <div className="highlights-header">
         <div>
           <span className="highlights-subtitle">Stay Updated</span>
@@ -102,7 +102,10 @@ function RecentHighlights({ onNavigateToEvents }) {
 
         {/* Scrolling Content Library (Index) */}
         <div className="scrolling-library">
-          <h4 className="library-title">Content Library</h4>
+          <div className="library-header-box">
+            <h4 className="library-title">Explore Stories</h4>
+            <p className="library-subtitle">Select an event below to view</p>
+          </div>
           <div className="library-list">
             {homeEvents.map((ev, idx) => (
               <button 
@@ -110,7 +113,6 @@ function RecentHighlights({ onNavigateToEvents }) {
                 className={`library-item ${idx === activeIndex ? 'active' : ''}`}
                 onClick={() => goToIndex(idx)}
               >
-                <span className="library-item-num">0{idx + 1}</span>
                 <div className="library-item-text">
                   <span className="library-item-title">{ev.title}</span>
                   <span className="library-item-date">{ev.date}</span>

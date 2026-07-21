@@ -81,3 +81,8 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* Offset for fixed navbar when navigating to hash links natively */
+*[id] {
+  scroll-margin-top: 80px;
+}

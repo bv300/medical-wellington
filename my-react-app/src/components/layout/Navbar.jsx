@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import logo from '../../assets/logo.svg'
 import './Navbar.css'
 
 function Navbar({ currentPage, onPageChange }) {
@@ -19,18 +20,12 @@ function Navbar({ currentPage, onPageChange }) {
         <a
           href="#home"
           onClick={(e) => {
-            e.preventDefault()
             onPageChange('home')
           }}
           className="navbar-brand"
         >
-          <span
-            className="material-symbols-outlined"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            medical_services
-          </span>
-          Medicare Wellington
+          <img src={logo} alt="Medicare Wellington Logo" className="navbar-logo" />
+         
         </a>
 
         {/* Navigation Links */}
@@ -40,7 +35,6 @@ function Navbar({ currentPage, onPageChange }) {
               key={link.label}
               href={`#${link.id}`}
               onClick={(e) => {
-                e.preventDefault()
                 onPageChange(link.id)
               }}
               className={`nav-link ${currentPage === link.id ? 'active' : ''}`}
@@ -72,7 +66,6 @@ function Navbar({ currentPage, onPageChange }) {
                 key={link.label}
                 href={`#${link.id}`}
                 onClick={(e) => {
-                  e.preventDefault()
                   onPageChange(link.id)
                   setMobileMenuOpen(false)
                 }}

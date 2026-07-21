@@ -242,7 +242,7 @@ function MissionVision() {
         </svg>
       </div>
 
-      <section className="mv-section">
+      <section id="mission-vision" className="mv-section">
         <div className="mv-bg-blur-1"></div>
         <div className="mv-bg-blur-2"></div>
 

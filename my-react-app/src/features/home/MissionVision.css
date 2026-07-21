@@ -1,0 +1,499 @@
+.mv-section {
+  background-color: var(--surface-container-low);
+  width: 100%;
+  padding: 64px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.mv-bg-blur-1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background-color: rgba(13, 122, 133, 0.1);
+  border-radius: var(--radius-full);
+  filter: blur(100px);
+  transform: translate(33%, -50%);
+  pointer-events: none;
+}
+
+.mv-bg-blur-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 400px;
+  background-color: rgba(254, 164, 84, 0.1);
+  border-radius: var(--radius-full);
+  filter: blur(80px);
+  transform: translate(-33%, 50%);
+  pointer-events: none;
+}
+
+.mv-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-mobile, 16px);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+@media (min-width: 768px) {
+  .mv-container {
+    padding: 0 var(--spacing-desktop, 32px);
+  }
+}
+
+/* ---------- Section header ---------- */
+
+.flow-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.flow-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.flow-dot.vision {
+  background-color: var(--primary);
+  animation: pulse 2s infinite;
+}
+
+.flow-dot.mission {
+  background-color: var(--secondary);
+  animation: pulse 2s infinite;
+}
+
+.flow-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .flow-title {
+    font-size: 32px;
+  }
+}
+
+.flow-section--mission {
+  border-top: 1px solid rgba(190, 200, 202, 0.25);
+  padding-top: 48px;
+}
+
+/* ---------- Legend ---------- */
+
+.flow-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 12px 16px;
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-container-lowest);
+  border: 1px solid rgba(190, 200, 202, 0.35);
+  margin-bottom: 28px;
+  font-size: 12px;
+  color: var(--on-surface-variant);
+}
+
+.flow-legend-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.flow-legend-swatch {
+  width: 16px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.swatch-main {
+  border: 2px solid var(--primary);
+}
+
+.flow-legend--mission .swatch-main {
+  border-color: var(--secondary);
+}
+
+.swatch-component {
+  border: 2px dashed var(--outline-variant);
+}
+
+.swatch-external {
+  border: 1px dashed var(--on-surface-variant);
+}
+
+.flow-legend-line {
+  width: 22px;
+  height: 0;
+  border-top: 2px solid var(--primary);
+  flex-shrink: 0;
+}
+
+.flow-legend--mission .line-sequential {
+  border-top-color: var(--secondary);
+}
+
+.line-dependency {
+  border-top-style: dotted;
+  border-top-color: var(--on-surface-variant);
+}
+
+.flow-legend-badge {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   DESKTOP / LAPTOP — exact wireframe canvas
+   ============================================================ */
+
+.only-mobile {
+  display: none;
+}
+
+.flow-canvas {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.flow-canvas-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 1;
+}
+
+.flow-edge {
+  stroke: var(--primary);
+  stroke-width: 1.2;
+  fill: none;
+  opacity: 0.5;
+}
+
+.flow-section--mission .flow-edge--sequential {
+  stroke: var(--secondary);
+}
+
+.flow-edge--dependency {
+  stroke: var(--outline);
+  stroke-dasharray: 4 4;
+  stroke-linecap: round;
+  opacity: 0.4;
+}
+
+.flow-marker--sequential {
+  fill: var(--primary);
+  opacity: 0.5;
+}
+
+.flow-section--mission .flow-marker--sequential {
+  fill: var(--secondary);
+  opacity: 0.5;
+}
+
+.flow-marker--dependency {
+  fill: var(--outline);
+  opacity: 0.4;
+}
+
+.flow-box {
+  position: absolute;
+  z-index: 2;
+  border-radius: var(--radius-lg);
+  background-color: var(--surface-container-lowest);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flow-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.25);
+  z-index: 3;
+}
+
+.flow-box--main {
+  border: 2.5px solid var(--primary);
+}
+
+.flow-section--mission .flow-box--main {
+  border-color: var(--secondary);
+}
+
+.flow-box--component {
+  border: 2px dashed var(--outline-variant);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.flow-box--component:hover {
+  border-color: var(--primary);
+}
+
+.flow-section--mission .flow-box--component:hover {
+  border-color: var(--secondary);
+}
+
+.flow-box--external {
+  border: 1.5px dashed var(--on-surface-variant);
+  background-color: var(--surface-container);
+  align-items: center;
+  justify-content: center;
+}
+
+.flow-box--round {
+  border-radius: var(--radius-full);
+}
+
+.flow-box-content {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.flow-box-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.flow-section--mission .flow-box-badge {
+  color: var(--secondary);
+}
+
+.flow-box-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--on-surface);
+  margin: 0 0 4px;
+  line-height: 1.15;
+}
+
+.flow-box-desc {
+  font-size: 11.5px;
+  line-height: 15px;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+
+.flow-box-number {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+  font-weight: 700;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.flow-box-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.flow-box-img--fill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.9;
+}
+
+.flow-box--main .flow-box-content,
+.flow-box--component .flow-box-content {
+  position: relative;
+  z-index: 1;
+}
+
+.flow-box--main:has(.flow-box-img--fill) .flow-box-content {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05));
+  color: #fff;
+}
+
+.flow-box--main:has(.flow-box-img--fill) .flow-box-title,
+.flow-box--main:has(.flow-box-img--fill) .flow-box-badge {
+  color: #fff;
+}
+
+.flow-media-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--on-primary);
+  background-color: rgba(13, 28, 47, 0.7);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  position: absolute;
+  bottom: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+/* Show the canvas only from laptop width up; below that, swap to mobile stack */
+@media (max-width: 1023px) {
+  .only-desktop {
+    display: none;
+  }
+
+  .only-mobile {
+    display: flex;
+  }
+}
+
+/* Container Query styles for fluid responsive scaling on desktop views */
+.flow-canvas .flow-box-badge {
+  font-size: 1.1cqw;
+  margin-bottom: 0.4cqw;
+}
+
+.flow-canvas .flow-box-title {
+  font-size: 1.6cqw;
+  margin: 0 0 0.4cqw;
+  line-height: 1.25;
+}
+
+.flow-canvas .flow-box-desc {
+  font-size: 1.25cqw;
+  line-height: 1.4;
+}
+
+.flow-canvas .flow-box-content {
+  padding: 1.1cqw 1.3cqw;
+}
+
+/* ============================================================
+   MOBILE / TABLET — different, linear arrangement
+   ============================================================ */
+
+.flow-mobile-stack {
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+}
+
+.flow-mobile-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.flow-mobile-connector {
+  color: var(--primary);
+  padding: 4px 0;
+}
+
+.flow-section--mission .flow-mobile-connector {
+  color: var(--secondary);
+}
+
+.flow-mobile-connector--dependency {
+  color: var(--on-surface-variant);
+}
+
+.flow-mobile-arrow {
+  width: 14px;
+  height: 22px;
+}
+
+.flow-mobile-arrow line {
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.flow-mobile-connector--dependency .flow-mobile-arrow line {
+  stroke-dasharray: 2 3;
+}
+
+.flow-mobile-arrow path {
+  fill: currentColor;
+}
+
+.flow-box--mobile {
+  position: static;
+  width: 100%;
+  max-width: 420px;
+  min-height: 96px;
+}
+
+.flow-box--mobile.flow-box--external,
+.flow-box--mobile.flow-box--pure-image {
+  height: 160px;
+  /* Explicit size to prevent image collapse on mobile */
+  min-height: 160px;
+}
+
+.flow-box--mobile .flow-box-content {
+  padding: 14px 16px;
+}
+
+.flow-box--mobile .flow-box-title {
+  font-size: 16px;
+}
+
+.flow-box--mobile .flow-box-desc {
+  font-size: 13px;
+  line-height: 19px;
+  -webkit-line-clamp: unset;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+}

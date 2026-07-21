@@ -1,0 +1,83 @@
+/* Global Design System variables matching Medicare Wellington's theme */
+:root {
+  /* Colors */
+  --primary: #00606a;
+  --primary-container: #0d7a87;
+  --on-primary: #ffffff;
+  --on-primary-container: #d7f9ff;
+  --primary-fixed: #99f0fe;
+  --primary-fixed-dim: #7dd4e2;
+
+  --secondary: #904d00;
+  --secondary-container: #ffa454;
+  --on-secondary: #ffffff;
+  --on-secondary-container: #713b00;
+  --secondary-fixed: #ffdcc3;
+  --secondary-fixed-dim: #ffb77d;
+
+  --tertiary: #725c00;
+  --tertiary-container: #cca800;
+  --on-tertiary: #ffffff;
+  --on-tertiary-container: #4d3e00;
+  --tertiary-fixed: #ffe07d;
+  --tertiary-fixed-dim: #ebc31a;
+
+  --background: #f8f9ff;
+  --on-background: #0d1c2f;
+
+  --surface: #f8f9ff;
+  --on-surface: #0d1c2f;
+  --on-surface-variant: #3e494a;
+  
+  --surface-container: #e6eeff;
+  --surface-container-low: #eff4ff;
+  --surface-container-lowest: #ffffff;
+  --surface-container-high: #dde9ff;
+  --surface-container-highest: #d5e3fd;
+
+  --outline: #6e797b;
+  --outline-variant: #bec8ca;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+
+  /* Typography */
+  --font-display: 'Montserrat', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Borders & Spacing Defaults */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  --spacing-mobile: 16px;
+  --spacing-desktop: 64px;
+  --spacing-gutter: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

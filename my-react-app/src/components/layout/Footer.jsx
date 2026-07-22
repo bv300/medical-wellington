@@ -1,4 +1,4 @@
-import logo from '../../assets/logo.svg'
+import logo from '../../assets/medicare-logo.png'
 import './Footer.css'
 
 const exploreLinks = [

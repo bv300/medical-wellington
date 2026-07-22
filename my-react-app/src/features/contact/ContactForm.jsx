@@ -5,20 +5,69 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
+    email: '',
     phone: '',
     message: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
+    if (name === 'phone') {
+      // Allow only digits, spaces, plus signs, dashes, and parentheses in real time
+      const cleanValue = value.replace(/[^0-9\s\-\(\)\+]/g, '')
+      setFormData((prev) => ({ ...prev, [name]: cleanValue }))
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }))
+    }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! We will get back to you shortly.')
-    setFormData({ firstName: '', lastName: '', phone: '', message: '' })
+
+    // Validate New Zealand phone number format if provided
+    if (formData.phone.trim() !== '') {
+      const cleanPhone = formData.phone.replace(/[\s\-\(\)]/g, '')
+      // NZ Mobile: starts with 02 or +642 followed by 7-9 digits
+      // NZ Landline: starts with 03,04,06,07,09 or +64 followed by 7 digits
+      const nzPhoneRegex = /^(?:\+64|0)(?:2\d{7,9}|[34679]\d{7})$/
+
+      if (!nzPhoneRegex.test(cleanPhone)) {
+        alert('Please enter a valid New Zealand phone number (e.g., 021 123 4567 or 04 123 4567).')
+        return
+      }
+    }
+
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/suhadigitech@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Name: `${formData.firstName} ${formData.lastName}`,
+          Email: formData.email,
+          Phone: formData.phone || 'Not provided',
+          Message: formData.message,
+          _subject: 'New Contact Form Submission - Medicare Wellington'
+        })
+      })
+
+      if (response.ok) {
+        alert('Thank you for your message! It has been sent successfully.')
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
+      } else {
+        throw new Error('Form submission failed.')
+      }
+    } catch (error) {
+      console.error('Submission error:', error)
+      alert('Oops! Something went wrong while sending your message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -61,7 +110,22 @@ function ContactForm() {
               required
             />
           </div>
-          <div className="form-group md:col-span-2">
+          <div className="form-group">
+            <label className="form-label" htmlFor="email">
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              value={formData.email}
+              onChange={handleChange}
+              className="form-input"
+              required
+            />
+          </div>
+          <div className="form-group">
             <label className="form-label" htmlFor="phone">
               Phone Number
             </label>
@@ -75,7 +139,7 @@ function ContactForm() {
               className="form-input"
             />
           </div>
-          <div className="form-group md:col-span-2">
+          <div className="form-group md:col-span-2 col-span-2">
             <label className="form-label" htmlFor="message">
               Message
             </label>
@@ -91,8 +155,8 @@ function ContactForm() {
             />
           </div>
           <div className="form-submit-wrapper">
-            <button type="submit" className="btn-submit">
-              Send Message
+            <button type="submit" className="btn-submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </div>
         </form>

@@ -93,12 +93,21 @@
 
 .about-hero-container {
   width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-mobile, 16px);
   position: relative;
   z-index: 10;
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
   align-items: center;
+}
+
+@media (min-width: 768px) {
+  .about-hero-container {
+    padding: 0 var(--spacing-desktop, 64px);
+  }
 }
 
 @media (min-width: 1024px) {

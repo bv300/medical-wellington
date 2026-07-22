@@ -46,7 +46,7 @@ function RecentHighlights({ onNavigateToEvents }) {
       <div className="highlights-header">
         <div>
           <span className="highlights-subtitle">Stay Updated</span>
-          <h2 className="highlights-title">Recent Highlights</h2>
+          <h2 className="highlights-title">Explore Highlights</h2>
           <p className="highlights-desc">
             Community events, milestones, and news.
           </p>

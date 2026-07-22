@@ -4,7 +4,7 @@
   margin: 16px auto 0;
   padding: 48px var(--spacing-mobile);
   display: grid;
-  grid-template-cols: 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-gutter);
   min-height: 600px;
 }

@@ -7,6 +7,7 @@ function Navbar({ currentPage, onPageChange }) {
 
   const navLinks = [
     { label: 'Home', id: 'home' },
+    { label: 'About Us', id: 'about' },
     { label: 'Vision/Mission', id: 'mission-vision' },
     { label: 'Highlights', id: 'highlights' },
     { label: 'Gallery', id: 'gallery' },

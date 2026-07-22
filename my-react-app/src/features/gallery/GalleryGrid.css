@@ -65,7 +65,7 @@
 
 .gallery-grid {
   display: grid;
-  grid-template-cols: 1fr;
+  grid-template-columns: 1fr;
   gap: var(--spacing-gutter);
   grid-auto-rows: 250px;
 }

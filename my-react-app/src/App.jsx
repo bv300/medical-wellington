@@ -10,11 +10,12 @@ function App() {
   const [currentPage, setCurrentPage] = useState('home')
 
   const handlePageChange = (pageId) => {
-    if (pageId === 'mission-vision' || pageId === 'highlights' || pageId === 'contact') {
+    if (pageId === 'about' || pageId === 'mission-vision' || pageId === 'highlights' || pageId === 'contact') {
       setCurrentPage('home')
       setTimeout(() => {
         let selector = ''
-        if (pageId === 'mission-vision') selector = '.mv-section'
+        if (pageId === 'about') selector = '#about'
+        else if (pageId === 'mission-vision') selector = '.mv-section'
         else if (pageId === 'highlights') selector = '.highlights-section'
         else if (pageId === 'contact') selector = '.contact-section'
 

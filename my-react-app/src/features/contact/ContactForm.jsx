@@ -39,7 +39,7 @@ function ContactForm() {
               type="text"
               id="firstName"
               name="firstName"
-              placeholder="John"
+              placeholder="Enter your first name"
               value={formData.firstName}
               onChange={handleChange}
               className="form-input"
@@ -54,14 +54,14 @@ function ContactForm() {
               type="text"
               id="lastName"
               name="lastName"
-              placeholder="Doe"
+              placeholder="Last Name"
               value={formData.lastName}
               onChange={handleChange}
               className="form-input"
               required
             />
           </div>
-          <div className="form-group col-span-2">
+          <div className="form-group md:col-span-2">
             <label className="form-label" htmlFor="phone">
               Phone Number
             </label>
@@ -69,13 +69,13 @@ function ContactForm() {
               type="tel"
               id="phone"
               name="phone"
-              placeholder="+64 00 000 0000"
+              placeholder="Enter your phone number"
               value={formData.phone}
               onChange={handleChange}
               className="form-input"
             />
           </div>
-          <div className="form-group col-span-2">
+          <div className="form-group md:col-span-2">
             <label className="form-label" htmlFor="message">
               Message
             </label>

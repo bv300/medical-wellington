@@ -11,14 +11,14 @@ const VISION_H = 560
 const visionBoxes = {
   imgSmall1:  { x: 115, y: 15,  w: 85,  h: 65,  legend: 'external', label: 'IMG', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBT5C8t2-BtU2xrjZcU_W_IRt8YGyXvi3mg2i3Z5pQrjOOzC8BExVZdqTsxpGUhcWD11om8FPmeVza8N_jmzJnWBuK_UY6j1JVbLgcxjZEp8diiyQkr72haUxfepiQBkFgIsMzbnbwFVMNMCcrlRL9tjnsa4cF7EXj4bU-WhPTHsgyzCxbxPxnvdJ4oYgO-_VRMusd2FK-jdbAVqbpQHlDrGFqMJTujKjg2SKztA10hBDClo79y_z-4JXJ7TW-xCSwzgPkMmEElDg' },
   imgSmall2:  { x: 210, y: 8,   w: 80,  h: 55,  legend: 'external', label: 'IMG', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC_y8DBDhf4jZtLdsnp8RLFSibPfT_W-MSZJlCkLpGU8AG6UC2ru-ALvNDSblwPba9dSOD6ialL2NXQxEK_iRqnyGfokbj1796Z1KmcXbxsnMxffyKgBe6BKCp7-5Sn_pqPEzXkTzDp6zD8s7MXVlqGgQfn-vkYJPGJHEj96OykiOdgcXIPeAOEWenoPJ-eUwDqLsOuriGPqUmcTgfsWH81v14tNmoa5YTRYUOGtE44dOhsirP49OxxtUSrsD6oXeGxjnWb-FPLJA' },
-  topBox:     { x: 400, y: 12,  w: 190, h: 95,  legend: 'component', badge: 'Step 1 · Foundation', title: 'Core Compassion', desc: 'Hospitality, empathy, and patient stewardship at the center of everything.' },
+  topBox:     { x: 400, y: 12,  w: 190, h: 95,  legend: 'component', title: 'Compassionate Care', desc: 'Providing empathy, warmth, and patient-first support in everything we do.' },
   imgLarge:   { x: 15,  y: 95,  w: 190, h: 180, legend: 'external', label: 'IMG', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAo2ypmcSnpuxm5StEUaIzA0CeYj5s-tMwRIJWZMMbVKu2Qm1mKO3UQ2QgglEmJQvaGMXhORQvYnfuI85vzXWM7l50hxsPCTLusm7F0OLSinOTBV7apfMuzuNWX4cLRqoP60Um1KrheOG3mCCq8OPwqQvTGRkEKHRpgeiPVa81wsYTwogSJBfDHDBgECCNXo4VxwTmCaJs_MdE-nAVgxDjzozhADVrBXUkTfxpW02T63EG_3M4uNqSHRHjfqfscPgRLISp_Jcx9ug' },
-  box2:       { x: 445, y: 145, w: 175, h: 95,  legend: 'component', badge: 'Step 2 · Connection', title: 'Connected Support', desc: 'Relationships that extend across clinics and community boundaries.' },
+  box2:       { x: 445, y: 145, w: 175, h: 95,  legend: 'component', title: 'Strong Connections', desc: 'Building bridges between local healthcare workers, clinics, and families.' },
   imgBubble:  { x: 685, y: 155, w: 120, h: 80,  legend: 'external', label: 'img', round: true, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPq_bIEJeXbmFL7xAXpGZPio4gTmopfUHMfuvd2T2T1XNKoXEwiSwJwyqkcaQcgMApBT4Gk872S4DH8OAHOQE6SVwrunr_fosP5BzoZwR9nbpVW-r0RDoMPMLlos2RnmWt7fCoAkPi_yNBQ224VYXdtIN0YiHM0zRJwfmpw5U5FN5fy1W8qNX9tp5CTKNzEr8dTI-S6I9tDLMGNYbLrc0t96ccG-IAuDWkMZR4-k2rzsVia9CyFfBC7Y29BAsEUyWgWqmWWaB0fQ' },
-  dependBox:  { x: 40,  y: 305, w: 190, h: 95,  legend: 'component', title: 'Resource Exchange', badge: 'Mutual Dependency', desc: 'Shared clinical guides and family-first services.' },
-  hubBox:     { x: 355, y: 290, w: 245, h: 120, legend: 'main', badge: 'Step 3 · Main Goal', title: 'United Community', desc: 'Unifying professionals and families to elevate community service.' },
-  sideBox:    { x: 660, y: 345, w: 180, h: 95,  legend: 'component', badge: 'Step 4 · Outreach', title: 'Cultural Harmony', desc: 'Celebrating heritage, building inclusive networks.' },
-  bottomBox:  { x: 355, y: 450, w: 225, h: 95,  legend: 'component', badge: 'Step 5 · Action', title: 'Collective Impact', desc: 'Welfare campaigns, blood drives, and symposia.' },
+  dependBox:  { x: 40,  y: 305, w: 190, h: 95,  legend: 'component', title: 'Resource Sharing', desc: 'Sharing medical guides, clinical tools, and family support resources.' },
+  hubBox:     { x: 355, y: 290, w: 245, h: 120, legend: 'main', title: 'United Community', desc: 'Bringing doctors, nurses, healthcare staff, and their families together as one team.' },
+  sideBox:    { x: 660, y: 345, w: 180, h: 95,  legend: 'component', title: 'Cultural Harmony', desc: 'Celebrating our diverse heritage and creating inclusive support networks.' },
+  bottomBox:  { x: 355, y: 450, w: 225, h: 95,  legend: 'component', title: 'Positive Impact', desc: 'Organizing health camps, blood donation drives, and charity events.' },
 }
 
 const visionEdges = [
@@ -38,9 +38,9 @@ const MISSION_W = 900
 const MISSION_H = 420
 
 const missionBoxes = {
-  m1:            { x: 40,  y: 20,  w: 200, h: 95,  legend: 'main', badge: 'Focus Area A', title: 'Empowering Growth', desc: 'Professional tools, continuous training, workspace collaboration.' },
-  m2:            { x: 200, y: 150, w: 180, h: 90,  legend: 'component', badge: 'Focus Area B', title: 'Support Framework', desc: 'Pipelines for resources, housing, and schooling.' },
-  m3:            { x: 15,  y: 290, w: 190, h: 100, legend: 'main', badge: 'Focus Area C', title: 'Stewardship First', desc: 'Our anchor identifier — safety, trust, shared values.' },
+  m1:            { x: 40,  y: 20,  w: 200, h: 95,  legend: 'main', title: 'Professional Growth', desc: 'Providing training, workshops, and collaborative tools to help healthcare workers excel.' },
+  m2:            { x: 200, y: 150, w: 180, h: 90,  legend: 'component', title: 'Family Support', desc: 'Helping families settle in Wellington with advice on housing, schooling, and local resources.' },
+  m3:            { x: 15,  y: 290, w: 190, h: 100, legend: 'main', title: 'Community Trust', desc: 'Creating a safe, supportive network built on shared values of compassion and unity.' },
   imgCloudLeft:  { x: 410, y: 70,  w: 90,  h: 70,  legend: 'external', label: 'img', round: true, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDgJxsAv_CjcyoXZ1ef7RW9LfJuTCuabRANKFdJ3Vnc2rbn9nn2S9N1dRYH0JqhweqYFa87wc8EOwLC5EXSXeSIABSeZGKLz4tiA9R_5DogQ3_TWFbND5O47yMp9Sli4WkMFRi3Jz4VB1opr_f6vhYWe_J969DvfUcQhVJBVyCWjL5hQ_OOhpBFXryDS_-nRkgc1IG7GhK1y1m2kcVMYgtDaKvkhGjU9Po9jNXSgLwVpMKlueLZ1Fy0H3gyOQbo0yHmOez6bSdZDw' },
   imgBig:        { x: 505, y: 30,  w: 190, h: 150, legend: 'main', label: 'IMG', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBAb5hwlaKbGpqohH7CEASzuBt2K9cy2Y4NdQ0RGQUvowXEtLdQwTDawJMlycL1Gx2WioWCp644m2yG5432joMkD71ZWe8zX-NApCPtxaWCF_1emqtmigIslQ1gyOzBg15wXIqCHqDPQJ1gdLhHlMiXQLMoHldm50Gq61-R9aWpVo940A1ZQYzRoGDXaep_WPiz0p6eGIAEGboVB0abvttzPIlPtaE0Uaj2JphOje4CHR4VRHRVHMBxAnll7lHLpXPHzqLkNz9TLA' },
   imgRight:      { x: 740, y: 95,  w: 140, h: 90,  legend: 'external', label: 'IMG', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAR9X4x5Q3QOx9oUaIpaDuZHeQDlnLyfxqxPloiIanyT2EEVmt5Tpor_2nsOc0cWlKlcaUTYGAZvVpXfA-YuTa22pr_dJlhrLnZX2oKG4vmC3KtkZ3fim1AK93TFn4ZkRdwIc8TxpaXuQ7Pvrfkl68u9SlDdIVRxwYwuYofUq67z_YBri7aFuxj1V7vpeOzrJvyOJNbZMPLHDTVusAovZpjriQZPJe-E2_IMzsoEZHlTZ3sNxg0glgn1MrIRuPg_cCE9fnD9xMAwA' },
@@ -98,7 +98,6 @@ function CanvasBox({ box, canvasW, canvasH }) {
       {box.number && <span className="flow-box-number">{box.number}</span>}
       {box.img && <img src={box.img} alt={box.title} className="flow-box-img flow-box-img--fill" />}
       <div className="flow-box-content">
-        {box.badge && <span className="flow-box-badge">{box.badge}</span>}
         {box.title && <h4 className="flow-box-title">{box.title}</h4>}
         {box.desc && <p className="flow-box-desc">{box.desc}</p>}
       </div>
@@ -178,7 +177,6 @@ function MobileStack({ order, boxes, dependencyKeys = [] }) {
                 {box.number && <span className="flow-box-number">{box.number}</span>}
                 {box.img && <img src={box.img} alt={box.title} className="flow-box-img flow-box-img--fill" />}
                 <div className="flow-box-content">
-                  {box.badge && <span className="flow-box-badge">{box.badge}</span>}
                   {box.title && <h4 className="flow-box-title">{box.title}</h4>}
                   {box.desc && <p className="flow-box-desc">{box.desc}</p>}
                 </div>

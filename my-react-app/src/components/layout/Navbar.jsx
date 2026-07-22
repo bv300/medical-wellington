@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import logo from '../../assets/medicare-logo.png'
+import Logo from './Logo'
 import './Navbar.css'
 
 function Navbar({ currentPage, onPageChange }) {
@@ -25,7 +25,7 @@ function Navbar({ currentPage, onPageChange }) {
           }}
           className="navbar-brand"
         >
-          <img src={logo} alt="Medicare Wellington Logo" className="navbar-logo" />
+          <Logo className="navbar-logo" />
          
         </a>
 

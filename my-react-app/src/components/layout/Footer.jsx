@@ -1,4 +1,4 @@
-import logo from '../../assets/medicare-logo.png'
+import Logo from './Logo'
 import './Footer.css'
 
 const exploreLinks = [
@@ -23,7 +23,7 @@ function Footer() {
         <div className="footer-brand-col">
           <div className="footer-brand">
             <div className="footer-brand-icon">
-              <img src={logo} alt="Medicare Wellington Logo" className="footer-logo" />
+              <Logo className="footer-logo" />
             </div>
           </div>
           <p className="footer-desc">

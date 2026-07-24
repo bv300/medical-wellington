@@ -1,0 +1,52 @@
+/* External CSS for Gallery Page */
+.gallery-page {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.gallery-hero-section {
+  padding-top: 64px;
+  padding-bottom: 48px;
+  padding-left: var(--spacing-mobile, 16px);
+  padding-right: var(--spacing-mobile, 16px);
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .gallery-hero-section {
+    padding-left: var(--spacing-desktop, 64px);
+    padding-right: var(--spacing-desktop, 64px);
+  }
+}
+
+.gallery-title {
+  font-family: var(--font-display, 'Montserrat', sans-serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--on-surface, #0d1c2f);
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .gallery-title {
+    font-size: 48px;
+  }
+}
+
+.gallery-subtitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--on-surface-variant, #3e494a);
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.gallery-grid-wrapper {
+  width: 100%;
+}

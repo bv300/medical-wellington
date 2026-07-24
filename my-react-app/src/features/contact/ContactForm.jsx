@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import './ContactForm.css'
 
+// Get your free access key at https://web3forms.com — no signup/activation email needed,
+// just enter your email and it gives you a key instantly.
+const WEB3FORMS_ACCESS_KEY = 'YOUR_ACCESS_KEY_HERE'
+
 function ContactForm() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -41,26 +45,32 @@ function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('https://formsubmit.co/ajax/suhadigitech@gmail.com', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          Accept: 'application/json',
         },
         body: JSON.stringify({
-          Name: `${formData.firstName} ${formData.lastName}`,
-          Email: formData.email,
-          Phone: formData.phone || 'Not provided',
-          Message: formData.message,
-          _subject: 'New Contact Form Submission - Medicare Wellington'
-        })
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: 'New Contact Form Submission - Medicare Wellington',
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone || 'Not provided',
+          message: formData.message,
+          // Honeypot field for spam protection — must stay empty
+          botcheck: '',
+        }),
       })
 
-      if (response.ok) {
+      const result = await response.json()
+
+      if (result.success) {
         alert('Thank you for your message! It has been sent successfully.')
         setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '' })
       } else {
-        throw new Error('Form submission failed.')
+        throw new Error(result.message || 'Form submission failed.')
       }
     } catch (error) {
       console.error('Submission error:', error)
@@ -80,6 +90,9 @@ function ContactForm() {
           </p>
         </div>
         <form className="contact-form" onSubmit={handleSubmit}>
+          {/* Honeypot field — hidden from real users, catches bots */}
+          <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
+
           <div className="form-group">
             <label className="form-label" htmlFor="firstName">
               First Name
@@ -139,7 +152,7 @@ function ContactForm() {
               className="form-input"
             />
           </div>
-          <div className="form-group md:col-span-2 col-span-2">
+          <div className="form-group full-width">
             <label className="form-label" htmlFor="message">
               Message
             </label>

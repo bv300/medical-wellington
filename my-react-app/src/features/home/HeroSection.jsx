@@ -3,7 +3,7 @@ import './HeroSection.css'
 
 const HERO_IMAGES = [
   {
-    url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAj5gUzEIbithYDcm0CAIbhzPkeMdND9gFaJyTX20kYXsQvbg48iowYSGoM6rdvFKU0KB6owDoKwhqRKUn6JhhB2sYMCuANZOwrQBqBi4-kJ07pLJLN8UGgP863Eo13ebui-0h8H6fZ1nDSH7xajD_Ujb-y5pSHALIMWZe1JLwgy__D2z5wfcAz5difgK6KEJgqXJLxKrRhgNX1GmyGhrKZXvIWjz_5gc1GT5xgla0KD3LtcT6s9XBmzxOKrqrshseRWJ7uJAhwHA',
+    url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1600&q=80',
     title: (
       <>
         Welcome to <br />

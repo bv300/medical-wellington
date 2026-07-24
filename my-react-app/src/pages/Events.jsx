@@ -1,61 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+import grandInaguration8Img from '../assets/grand-inaguration-8.jpeg'
 import './Events.css'
 
 const newsArticles = [
   {
     id: 1,
-    title: 'EVE FEST 2026 – A Grand Celebration of Unity, Culture and Talent',
-    tag: 'Cultural Event',
-    tagClass: 'bg-primary/10 text-primary',
-    date: 'April 2026',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDoVG1nLrlSKjtA8FjrHC-513fvjcQ2UA6t_meHg1mR3OTWsEwZS2CnNKNalXicyXpnPx8UWX6pmz57NAUC84GCYJ4R64SUlWBJYXVz4JZd8IjREBpZiGDMpoYYEZGcjebTe0YECvP1wVINgKVFp88FpqUMaBcRxKBARLDLaRk6dv5niCd2PuaYsrde_07Z_PT0AwPPwcVTHMQE_QnFyhIa4nRa2ejU0j2r_isYWoSq87NM44wqMqJeY9a0DUVz88Nf6R51nmdluA',
-    description: 'EVE FEST 2026 was celebrated with great enthusiasm at P.I.P.C Hall, Newtown, bringing together the festive spirit of Easter, Eid, and Vishu on one vibrant stage. The event reflected the values of unity, cultural diversity, and community togetherness, creating an unforgettable experience for everyone who attended.',
-    fullContent: (
-      <>
-        <p>
-          <strong>EVE FEST 2026</strong> was celebrated with great enthusiasm at <strong>P.I.P.C Hall, Newtown</strong>,
-          bringing together the festive spirit of <strong>Easter, Eid, and Vishu</strong> on one vibrant stage. The event
-          reflected the values of unity, cultural diversity, and community togetherness, creating an unforgettable
-          experience for everyone who attended.
-        </p>
-        <p>
-          One of the major highlights of the celebration was the <strong>first-ever Medicare Midukkan and Medicare
-          Midukki Competition in Wellington</strong>. The prestigious talent hunt attracted enthusiastic participants
-          who competed through <strong>three rounds of selection</strong>, showcasing their confidence, personality,
-          communication skills, and unique talents before the finalists competed on the grand stage. The competition
-          received an overwhelming response from both participants and the audience.
-        </p>
-        <p>
-          Adding to the excitement were the <strong>Reel Competition</strong> and <strong>Folk Singing Competition</strong>,
-          where contestants displayed remarkable creativity, artistic expression, and musical talent. Their outstanding
-          performances captivated the audience and made the competitions a resounding success.
-        </p>
-        <p>
-          The cultural segment beautifully showcased Kerala's rich heritage through graceful performances of 
-          <strong>Margamkali</strong>, <strong>Kaikottikali</strong>, and <strong>Oppana</strong>. These performances
-          highlighted the spirit of harmony and cultural inclusiveness, perfectly complementing the celebrations
-          of Easter, Eid, and Vishu.
-        </p>
-        <p>
-          To make the occasion even more memorable, <strong>surprise gift vouchers</strong> were presented to Medicare
-          members as a token of appreciation for their continued support and participation. The celebration concluded
-          with joy, laughter, and a renewed sense of togetherness, leaving everyone with cherished memories.
-        </p>
-        <p>
-          EVE FEST 2026 was more than a cultural event—it was a celebration of friendship, diversity, and community
-          spirit. The overwhelming participation and positive response made it one of Medicare Wellington's most
-          successful and memorable gatherings, setting a new benchmark for future celebrations.
-        </p>
-      </>
-    )
-  },
-  {
-    id: 2,
     title: 'Medicare Wellington Blood Donation Drive 2026 – A Gift of Life',
-    tag: 'Community',
-    tagClass: 'bg-secondary-container text-on-secondary-container',
     date: '4 March 2026',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBT5C8t2-BtU2xrjZcU_W_IRt8YGyXvi3mg2i3Z5pQrjOOzC8BExVZdqTsxpGUhcWD11om8FPmeVza8N_jmzJnWBuK_UY6j1JVbLgcxjZEp8diiyQkr72haUxfepiQBkFgIsMzbnbwFVMNMCcrlRL9tjnsa4cF7EXj4bU-WhPTHsgyzCxbxPxnvdJ4oYgO-_VRMusd2FK-jdbAVqbpQHlDrGFqMJTujKjg2SKztA10hBDClo79y_z-4JXJ7TW-xCSwzgPkMmEElDg',
+    image: 'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80',
     description: 'Medicare Wellington proudly partnered with the New Zealand Blood Service to organise a successful Blood Donation Drive, reaffirming its commitment to community service and humanitarian values.',
     fullContent: (
       <>
@@ -91,12 +44,55 @@ const newsArticles = [
     )
   },
   {
+    id: 2,
+    title: 'EVE FEST 2026 – A Grand Celebration of Unity, Culture and Talent',
+    date: 'April 2026',
+    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80',
+    description: 'EVE FEST 2026 was celebrated with great enthusiasm at P.I.P.C Hall, Newtown, bringing together the festive spirit of Easter, Eid, and Vishu on one vibrant stage. The event reflected the values of unity, cultural diversity, and community togetherness, creating an unforgettable experience for everyone who attended.',
+    fullContent: (
+      <>
+        <p>
+          <strong>EVE FEST 2026</strong> was celebrated with great enthusiasm at <strong>P.I.P.C Hall, Newtown</strong>,
+          bringing together the festive spirit of <strong>Easter, Eid, and Vishu</strong> on one vibrant stage. The event
+          reflected the values of unity, cultural diversity, and community togetherness, creating an unforgettable
+          experience for everyone who attended.
+        </p>
+        <p>
+          One of the major highlights of the celebration was the <strong>first-ever Medicare Midukkan and Medicare
+            Midukki Competition in Wellington</strong>. The prestigious talent hunt attracted enthusiastic participants
+          who competed through <strong>three rounds of selection</strong>, showcasing their confidence, personality,
+          communication skills, and unique talents before the finalists competed on the grand stage. The competition
+          received an overwhelming response from both participants and the audience.
+        </p>
+        <p>
+          Adding to the excitement were the <strong>Reel Competition</strong> and <strong>Folk Singing Competition</strong>,
+          where contestants displayed remarkable creativity, artistic expression, and musical talent. Their outstanding
+          performances captivated the audience and made the competitions a resounding success.
+        </p>
+        <p>
+          The cultural segment beautifully showcased Kerala's rich heritage through graceful performances of
+          <strong>Margamkali</strong>, <strong>Kaikottikali</strong>, and <strong>Oppana</strong>. These performances
+          highlighted the spirit of harmony and cultural inclusiveness, perfectly complementing the celebrations
+          of Easter, Eid, and Vishu.
+        </p>
+        <p>
+          To make the occasion even more memorable, <strong>surprise gift vouchers</strong> were presented to Medicare
+          members as a token of appreciation for their continued support and participation. The celebration concluded
+          with joy, laughter, and a renewed sense of togetherness, leaving everyone with cherished memories.
+        </p>
+        <p>
+          EVE FEST 2026 was more than a cultural event—it was a celebration of friendship, diversity, and community
+          spirit. The overwhelming participation and positive response made it one of Medicare Wellington's most
+          successful and memorable gatherings, setting a new benchmark for future celebrations.
+        </p>
+      </>
+    )
+  },
+  {
     id: 3,
     title: 'Luminous Fiesta 2025 – A Grand Celebration of Christmas Spirit',
-    tag: 'Celebration',
-    tagClass: 'bg-tertiary-container text-on-tertiary-container',
     date: '29 December 2025',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBAb5hwlaKbGpqohH7CEASzuBt2K9cy2Y4NdQ0RGQUvowXEtLdQwTDawJMlycL1Gx2WioWCp644m2yG5432joMkD71ZWe8zX-NApCPtxaWCF_1emqtmigIslQ1gyOzBg15wXIqCHqDPQJ1gdLhHlMiXQLMoHldm50Gq61-R9aWpVo940A1ZQYzRoGDXaep_WPiz0p6eGIAEGboVB0abvttzPIlPtaE0Uaj2JphOje4CHR4VRHRVHMBxAnll7lHLpXPHzqLkNz9TLA',
+    image: 'https://images.unsplash.com/photo-1512389142860-9c449e58a543?auto=format&fit=crop&w=800&q=80',
     description: 'The Medicare Wellington Association of Malayalee Health Care Workers and Families concluded the year on a festive note with Luminous Fiesta 2025, a Christmas celebration bringing together more than 400 attendees.',
     fullContent: (
       <>
@@ -124,11 +120,11 @@ const newsArticles = [
         </p>
         <p>
           The event was graced by distinguished guests, including <strong>Clifford Raphael</strong>, President of KCC;
-          <strong>Fr. Christy</strong>, Vicar of the Orthodox Church; and <strong>Antony</strong> from 
+          <strong>Fr. Christy</strong>, Vicar of the Orthodox Church; and <strong>Antony</strong> from
           <strong>Manga – The Food Store</strong>, whose presence made the celebration even more special.
         </p>
         <p>
-          One of the most memorable highlights of the evening was the <strong>Santa Parade</strong>, where 
+          One of the most memorable highlights of the evening was the <strong>Santa Parade</strong>, where
           <strong>more than 40 young Santas</strong> delighted the audience with their colourful costumes, followed
           by a delicious community dinner.
         </p>
@@ -138,10 +134,8 @@ const newsArticles = [
   {
     id: 4,
     title: "Nurturing Young Creativity – Children's Colouring and Drawing Competition",
-    tag: 'Youth',
-    tagClass: 'bg-error-container text-on-error-container',
     date: '1 December 2025',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC_y8DBDhf4jZtLdsnp8RLFSibPfT_W-MSZJlCkLpGU8AG6UC2ru-ALvNDSblwPba9dSOD6ialL2NXQxEK_iRqnyGfokbj1796Z1KmcXbxsnMxffyKgBe6BKCp7-5Sn_pqPEzXkTzDp6zD8s7MXVlqGgQfn-vkYJPGJHEj96OykiOdgcXIPeAOEWenoPJ-eUwDqLsOuriGPqUmcTgfsWH81v14tNmoa5YTRYUOGtE44dOhsirP49OxxtUSrsD6oXeGxjnWb-FPLJA',
+    image: 'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80',
     description: "Medicare Wellington organized a Children's Colouring and Drawing Competition on 1 December 2025 at the Polish Hall, Newtown, attracting an enthusiastic participation of over 50 children.",
     fullContent: (
       <>
@@ -175,10 +169,8 @@ const newsArticles = [
   {
     id: 5,
     title: 'Empowering the Community Through Financial Awareness',
-    tag: 'Education',
-    tagClass: 'bg-primary-container text-on-primary-container',
     date: '1 December 2025',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCPq_bIEJeXbmFL7xAXpGZPio4gTmopfUHMfuvd2T2T1XNKoXEwiSwJwyqkcaQcgMApBT4Gk872S4DH8OAHOQE6SVwrunr_fosP5BzoZwR9nbpVW-r0RDoMPMLlos2RnmWt7fCoAkPi_yNBQ224VYXdtIN0YiHM0zRJwfmpw5U5FN5fy1W8qNX9tp5CTKNzEr8dTI-S6I9tDLMGNYbLrc0t96ccG-IAuDWkMZR4-k2rzsVia9CyFfBC7Y29BAsEUyWgWqmWWaB0fQ',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80',
     description: 'Continuing its commitment to the well-being of the community, Medicare Wellington successfully organized a Financial Investment Seminar at Polish Hall, Newtown, led by Simi Sethu.',
     fullContent: (
       <>
@@ -200,18 +192,16 @@ const newsArticles = [
         <p>
           One of the highlights of the seminar was the highly interactive question-and-answer session, during which
           participants actively engaged with the speaker. A significant focus was placed on <strong>the current housing
-          market trends in New Zealand</strong>, home-buying strategies, mortgage options, and long-term planning.
+            market trends in New Zealand</strong>, home-buying strategies, mortgage options, and long-term planning.
         </p>
       </>
     )
   },
   {
     id: 6,
-    title: 'Medicare Wellington – A Journey Begins (Inauguration)',
-    tag: 'Milestone',
-    tagClass: 'bg-primary/10 text-primary',
+    title: 'Medicare Wellington – A Journey Begins (Grand Inauguration)',
     date: '25 October 2025',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAR9X4x5Q3QOx9oUaIpaDuZHeQDlnLyfxqxPloiIanyT2EEVmt5Tpor_2nsOc0cWlKlcaUTYGAZvVpXfA-YuTa22pr_dJlhrLnZX2oKG4vmC3KtkZ3fim1AK93TFn4ZkRdwIc8TxpaXuQ7Pvrfkl68u9SlDdIVRxwYwuYofUq67z_YBri7aFuxj1V7vpeOzrJvyOJNbZMPLHDTVusAovZpjriQZPJe-E2_IMzsoEZHlTZ3sNxg0glgn1MrIRuPg_cCE9fnD9xMAwA',
+    image: grandInaguration8Img,
     description: 'The association marked the beginning of a remarkable journey with its grand inauguration at the Indian Association Hall, Kilbirnie, celebrating unity, culture, and service.',
     fullContent: (
       <>
@@ -245,6 +235,17 @@ const newsArticles = [
 function Events() {
   const [selectedArticle, setSelectedArticle] = useState(null)
 
+  useEffect(() => {
+    if (selectedArticle) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedArticle])
+
   return (
     <main className="flex-grow w-full">
       <div className="events-page">
@@ -253,7 +254,7 @@ function Events() {
           <span className="events-badge">Updates & Events</span>
           <h1 className="events-title">News & Highlights</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
-            Stay updated with our latest community initiatives, milestones, and family gatherings.
+            Stay updated with our latest community initiatives, charity drives, milestones, and family gatherings.
           </p>
         </section>
 
@@ -267,9 +268,6 @@ function Events() {
             >
               <div className="event-img-frame">
                 <img src={article.image} alt={article.title} />
-                <span className={`event-tag-pill ${article.tagClass || 'default-tag'}`}>
-                  {article.tag}
-                </span>
               </div>
               <div className="event-content-body">
                 <span className="event-date-lbl">
@@ -285,8 +283,8 @@ function Events() {
           ))}
         </div>
 
-        {/* Detailed Article Modal */}
-        {selectedArticle && (
+        {/* Detailed Article Modal (Portal to document.body) */}
+        {selectedArticle && createPortal(
           <div className="modal-overlay" onClick={() => setSelectedArticle(null)}>
             <div
               className="modal-content-box"
@@ -295,6 +293,7 @@ function Events() {
               <button
                 className="modal-close-btn"
                 onClick={() => setSelectedArticle(null)}
+                aria-label="Close article modal"
               >
                 <span className="material-symbols-outlined">close</span>
               </button>
@@ -304,9 +303,6 @@ function Events() {
               </div>
 
               <div className="modal-body">
-                <span className={`modal-tag ${selectedArticle.tagClass}`}>
-                  {selectedArticle.tag}
-                </span>
                 <span className="modal-date">
                   <span className="material-symbols-outlined text-[18px]">calendar_month</span> {selectedArticle.date}
                 </span>
@@ -316,7 +312,8 @@ function Events() {
                 </div>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
       </div>
     </main>

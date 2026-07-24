@@ -26,7 +26,7 @@ function Navbar({ currentPage, onPageChange }) {
           className="navbar-brand"
         >
           <Logo className="navbar-logo" />
-         
+
         </a>
 
         {/* Navigation Links */}
